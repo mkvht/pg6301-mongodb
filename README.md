@@ -1,9 +1,9 @@
 MongoDB with React and Express
 =====================================
 
-* [ ] React and Express app
-  * [ ] npm init && npm install
-* [ ] Deploy Heroku via Heroku GIT instead of Github
+* [x] React and Express app
+  * [x] npm init && npm install
+* [x] Deploy Heroku via Heroku GIT instead of Github
   * Heroku commandline tool
   * Heroku login
   * heroku git:remote

@@ -1,7 +1,6 @@
 {
   "name": "server",
   "version": "1.0.0",
-  "description": "",
   "type": "module",
   "scripts": {
     "build": "npm install",
@@ -17,6 +16,8 @@
   },
   "dependencies": {
     "body-parser": "^1.20.0",
-    "express": "^4.18.1"
+    "dotenv": "^16.0.0",
+    "express": "^4.18.1",
+    "mongodb": "^4.5.0"
   }
 }
