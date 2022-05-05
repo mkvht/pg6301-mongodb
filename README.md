@@ -7,8 +7,8 @@ MongoDB with React and Express
   * Heroku commandline tool
   * Heroku login
   * heroku git:remote
-* [ ] React frontend router
-  * [ ] List movies - with express API Router
+* [x] React frontend router
+  * [x] List movies - with express API Router
   * [ ] Add new movie - with express api
 * [ ] MongoDB
   * [ ] Sign up with Atlas
