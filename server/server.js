@@ -8,10 +8,13 @@ dotenv.config();
 
 const app = express();
 
-const client = new MongoClient(process.env.MONGODB_URL);
-client.connect().then(async () => {
-  console.log("Connected to mongoDB");
-  app.use("/api/movies", MoviesApi(client.db("pg6301-7")));
+const mongoClient = new MongoClient(process.env.MONGODB_URL);
+mongoClient.connect().then(async () => {
+  console.log("Connected to mongodb");
+  app.use(
+    "/api/movies",
+    MoviesApi(mongoClient.db(process.env.MONGODB_DATABASE || "pg6301-7"))
+  );
 });
 
 app.use(express.static("../client/dist/"));
