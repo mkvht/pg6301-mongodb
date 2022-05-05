@@ -68,9 +68,11 @@ function ListMovies() {
   return (
     <div>
       <h1>Movies in the database</h1>
-      {data.map((movie) => (
-        <li key={movie.title}> movie={movie}</li>
-      ))}
+      <ul>
+        {data.map((movie) => (
+          <li key={movie.title}> {movie.title}</li>
+        ))}
+      </ul>
     </div>
   );
 }
