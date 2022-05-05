@@ -19,11 +19,19 @@ function FrontPage() {
 }
 
 function ListMovies() {
-  return null;
+  return (
+    <div>
+      <h1>Movies in the database</h1>
+    </div>
+  );
 }
 
 function RegisterMovie() {
-  return null;
+  return (
+    <form>
+      <h1>Register new movie</h1>
+    </form>
+  );
 }
 
 function Application() {
