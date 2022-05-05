@@ -11,7 +11,7 @@ function FrontPage() {
           <Link to={"/movies"}>List movies</Link>
         </li>
         <li>
-          <Link to={"/movies/new"}>Register new movie</Link>
+          <Link to={"/movies/new"}>Add new movie</Link>
         </li>
       </ul>
     </div>
@@ -49,13 +49,23 @@ async function fetchJSON(url) {
   return await res.json();
 }
 
+function MovieCard({ movie: { title, plot, poster } }) {
+  return (
+    <>
+      <h3>{title}</h3>
+      {poster && <img src={poster} width={100} alt={"Movie poster"} />}
+      <div>{plot}</div>
+    </>
+  );
+}
+
 function ListMovies() {
   const { loading, error, data } = useLoading(async () =>
     fetchJSON("/api/movies")
   );
 
   if (loading) {
-    return <div>Loading ...</div>;
+    return <div>Loading...</div>;
   }
   if (error) {
     return (
@@ -65,22 +75,22 @@ function ListMovies() {
       </div>
     );
   }
+
   return (
     <div>
-      <h1>Movies in the databases</h1>
-      <ul>
-        {data.map((movie) => (
-          <li key={movie.title}> {movie.title}</li>
-        ))}
-      </ul>
+      <h1>Movies in the database</h1>
+
+      {data.map((movie) => (
+        <MovieCard key={movie.title} movie={movie} />
+      ))}
     </div>
   );
 }
 
-function RegisterMovie() {
+function AddNewMovie() {
   return (
     <form>
-      <h1>Register new movie</h1>
+      <h1>Add new movie</h1>
     </form>
   );
 }
@@ -91,7 +101,7 @@ function Application() {
       <Routes>
         <Route path={"/"} element={<FrontPage />} />
         <Route path={"/movies"} element={<ListMovies />} />
-        <Route path={"/movies/new"} element={<RegisterMovie />} />
+        <Route path={"/movies/new"} element={<AddNewMovie />} />
       </Routes>
     </BrowserRouter>
   );
